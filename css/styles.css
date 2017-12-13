@@ -1,0 +1,25 @@
+/*data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAABCAAAAAAphRnkAAAAJ0lEQVQIW7XFsQEAIAyAMPD/b7uLWz8wS5youFW1UREfiIpH1Q2VBz7fGPS1dOGeAAAAAElFTkSuQmCC*/
+.w3-row {
+  width: 600px;
+  height: 200px;
+  margin: auto;
+  position: relative;
+}
+.w3-col {
+  height: 100%;
+}
+.w3-col:hover {
+  background-color: #92EEFF;
+}
+.grid div div {
+  border: 1px solid #292929;
+}
+h1 {
+  font-weight: bolder;
+  border-bottom: 1px solid #292929;
+  margin-bottom: 100px;
+}
+#a1 {
+  /*background-image: url("../img/imgx.png");
+  background-size: 100%;*/
+}
