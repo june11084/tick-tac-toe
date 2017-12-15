@@ -4,7 +4,9 @@
     <link href="css/W3.css" type="text/css" rel="stylesheet">
     <link href="css/styles.css" type="text/css" rel="stylesheet">
     <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/compTurn.js"></script>
     <script src="js/scripts.js"></script>
+
     <title>XOXO TIC TAC TOE!</title>
   </head>
   <body>
@@ -27,7 +29,10 @@
           <div class="w3-col l4 m4 s4" id="C3"></div>
         </div>
       </div>
-      <input type="button" class="btn btn-warning" value="Reset" onClick="location.href=location.href">
+      <div class="buttons">
+        <input type="button" class="btn btn-warning" value="Reset" onClick="location.href=location.href">
+        <button type="button" id="enableCom">Playing against <span id="compCheck">Human</span></button>
+      </div>
     </div>
   </body>
 </html>

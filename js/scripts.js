@@ -1,32 +1,49 @@
+var boards = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
 var playerX = [];
 var playerO = [];
+var computer = true;
+
 
 var playerTurn = function(block) {
   var turn = playerX.length + playerO.length;
-  if (turn % 2 === 0) {
-    playerX.push(block);
-    markPlayerX(block);
-    checkWin(playerX);
-  } else if (turn % 2 === 1) {
-    playerO.push(block);
-    markPlayerO(block);
-    checkWin(playerO);
-  } else {
-    console.log("broken");
+  if(computer === false) {
+      if (turn % 2 === 0) {
+      playerX.push(block);
+      markPlayerX(block);
+      checkWin(playerX);
+    } else if (turn % 2 === 1) {
+      playerO.push(block);
+      markPlayerO(block);
+      checkWin(playerO);
+    } else {
+      console.log("broken");
+    }
+  } else if (computer === true) {
+   if (turn % 2 === 0) {
+     playerX.push(block);
+     markPlayerX(block);
+     boards.splice(boards.indexOf(block), 1);
+     checkWin(playerX);
+     compTurn();
+   } else if (turn % 2 === 1) {
+     playerO.push(block);
+     markPlayerO(block);
+     checkWin(playerO);
+     compTurn();
+   } else {
+     console.log("broken");
+   }
+  console.log("Computers turn");
+
+  console.log("Spots Left:" + boards);
   }
 }
 
-var victory = function() {
-
-}
-
 var checkWin = function(player) {
-  if (player.indexOf("A1") > -1 && player.indexOf("A2") > -1 && player.indexOf("A3") > -1 ) {
+
+  if (player.join(" ").match(/(?=.*A1)(?=.*A2)(?=.*A3)/)) {
     console.log("Win!");
   } else {}
-  // if ("A1" in player) {
-  //   console.log("Win!");
-  // } else {}
   if (player.indexOf("B1") > -1 && player.indexOf("B2") > -1 && player.indexOf("B3") > -1 ) {
     console.log("Win!");
   } else {}
@@ -58,6 +75,18 @@ var markPlayerO = function(location) {
 }
 
 $(document).ready(function() {
+
+  $("#enableCom").click(function() {
+    if (computer === true) {
+      $("#compCheck").text("Human");
+      computer = false;
+    } else if (computer === false) {
+      $("#compCheck").text("Computer");
+      computer = true;
+    } else {
+      console.log("Reached else in toggle computer");
+    }
+  });
 
   $("#A1").one("click", function() {
     console.log("A1");
